@@ -1,0 +1,6 @@
+<% @users.each do |user| %>
+    <h1>Name: <%= user.name %> </h1>
+    <h3>Surname: <%= user.surname %></h2>
+    <h3>Phone: <%= user.phone %></h3>
+<% end %>
+<%= will_paginate @users, renderer: BootstrapPagination::Rails %>

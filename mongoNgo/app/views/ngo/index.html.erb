@@ -1,0 +1,32 @@
+<!-- When submit the form, the view rendered will be the index view of our articles resource -->
+<div class="container">
+    <div class="row">
+         <h1 class="page-header">Search for NGOs</h1>
+        <%= form_tag('/', :method => "get", id: "search-form") do %>
+        <div class="input-group">
+          <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Ngos" %>
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+       <!--     <button class="btn btn-danger" type="reset"><span class="glyphicon glyphicon-remove"></span></button> -->
+          </span>
+        </div>
+        <% end %>
+        <br>
+        <!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="pull-right"> <a id="expandAll" href="#" class="btn btn-default" role="button">Expand All</a>
+
+                <a id="collapseAll" href="#" class="btn btn-default" role="button">Collapse All</a>
+            </div>
+        </div> -->
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="panel-group" id="accordion">
+                <% if @ngos %>
+                    <%= render("ngos") %>
+                <% else %>
+                    No Result found
+                <% end %>
+                
+            </div>
+        </div>
+    </div>
+</div>
